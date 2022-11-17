@@ -1,4 +1,5 @@
 import { users } from './users.js'
+import { UserService } from './userService.js';
 
 let userList = users;
 
@@ -54,3 +55,10 @@ console.log(getAll())
 deleteByIdSplice(101);
 deleteByIdSplice(5);
 console.log(getAll())
+
+
+// instance
+// nesne ve obje
+let userService = new UserService("employee");
+userService.getAll();
+userService.add({ id: 1 })
