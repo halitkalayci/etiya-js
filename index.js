@@ -165,4 +165,6 @@ let filteredArray = carArray.filter((car) => {
 
 console.log(filteredArray)
 
+// reduce
+
 
