@@ -1,3 +1,5 @@
+import { users } from "./users";
+
 console.log("Hello World");
 
 // değişkenler
@@ -147,7 +149,8 @@ let car = {
 
 let carArray = [
     { brand: "BMW", model: "320", year: 2022, price: 2000 },
-    { brand: "Mercedes", model: "A", year: 2021, price: 1000 }
+    { brand: "Mercedes", model: "A", year: 2021, price: 1000 },
+    { brand: "Fiat", model: "B", year: 2020, price: 500 }
 ];
 // spread operator
 // her bir arabaya 100 birim ücret indirimi uygulanacak
@@ -166,5 +169,36 @@ let filteredArray = carArray.filter((car) => {
 console.log(filteredArray)
 
 // reduce
+// tüm arabaların fiyatlarının toplamını bulmak istiyorum.
+
+let totalPrice = 0;
+carArray.forEach(car => {
+    totalPrice += car.price;
+})
+console.log(totalPrice);
+
+
+// accumulator
+let totalPriceWithReduce = carArray.reduce((acc, car) => {
+    return acc + car.price;
+}, 0);
+console.log(totalPriceWithReduce)
+
+
+// fonksiyonlar
+// NaN => not a number
+function sumOfNumbers(a, b) {
+    return a + b;
+}
+
+let sumOf = sumOfNumbers(6, 5)
+console.log(sumOf)
+
+
+let sum = () => {
+    console.log("sum çağırıldı")
+}
+sum();
+
 
 
