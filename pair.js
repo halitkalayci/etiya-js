@@ -1,5 +1,6 @@
-import { users } from './users.js'
-import { UserService } from './userService.js';
+import { FileLogger, MssqlLogger } from './crossCuttingConcerns/logging/logger.js';
+import { users } from './data/users.js'
+import UserService from './services/userService.js';
 
 let userList = users;
 
@@ -59,6 +60,11 @@ console.log(getAll())
 
 // instance
 // nesne ve obje
-let userService = new UserService("employee");
+let logger = new FileLogger();
+let logger1 = new MssqlLogger();
+
+let loggers = [logger, logger1];
+// polymorphism
+let userService = new UserService(loggers);
 userService.getAll();
-userService.add({ id: 1 })
+// userService.add({ id: 1 })
